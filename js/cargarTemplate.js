@@ -1,7 +1,10 @@
+import { creaColumn, creaDivider, creaImagen, creaText } from "./objets.js";
+
 const querystring = window.location.search
 const contentNewTemplate = document.querySelector("#body-element");
 const btnVolver = document.querySelector(".volver-template")
 const elementInsert = document.querySelector(".group-button-sidebar")
+
 
 import jsonData from "./persistence/info.json" assert { type: "json" };
 
@@ -21,16 +24,7 @@ new Sortable(elementInsert, {
         put: false,
     },
     animation: 150,
-    /*
-    onEnd: (evt) => {
-        const item = evt.item;
-        item.className = "divContent"
-        while (item.firstChild) {
-            item.removeChild(item.firstChild);
-        }
-        item.innerHTML = `<p class="parrafo"> Soy un texto </p>`
-        console.log(evt.item)
-    },*/
+
     onEnd: (evt) => {
         createElement(evt.item)
     }
@@ -58,6 +52,10 @@ btnVolver.addEventListener('click', function(){
 const createElement = (item) => {
 
     const type = item.getAttribute("data-id")
+    item.className = "divContent"
+    while (item.firstChild) {
+        item.removeChild(item.firstChild);
+    }
 
     switch(type){
         case 'image':
@@ -74,3 +72,4 @@ const createElement = (item) => {
             break;
     }
 }
+
