@@ -30,23 +30,23 @@
             <div class="sidebar-drag-drop">
                 <div class="group-button-sidebar">
 
-                    <div class="button-sidebar">
+                    <div class="button-sidebar" data-id="column">
                         <ion-icon name="grid-outline"></ion-icon>
                         <span>Columns</span>
                     </div>
 
-                    <div class="button-sidebar">
-                        <ion-icon name="text-outline"></ion-icon>
+                    <div class="button-text" data-id="text">
+                        <ion-icon name="text-outline" data-id="text"></ion-icon>
                         <span>Text</span>
                     </div>
 
-                    <div class="button-sidebar">
+                    <div class="button-image" data-id="image">
 
-                        <ion-icon name="image-outline"></ion-icon>
+                        <ion-icon name="image-outline" ></ion-icon>
                         <span>Image</span>
                     </div>
 
-                    <div class="button-sidebar">
+                    <div class="button-divider" data-id="divider">
                         <ion-icon name="remove-outline"></ion-icon>
                         <span>divider</span>
                     </div>
@@ -60,6 +60,7 @@
 
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <script type="module" src="./js/cargarTemplate.js"> 
 
     </script>

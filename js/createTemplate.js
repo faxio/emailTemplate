@@ -2,7 +2,11 @@ const templateGroup  = document.querySelector(".templates-group")
 const btnNewtemplate = document.querySelector("#new-template");
 import jsonData from "./persistence/info.json" assert { type: "json" };
 
-
+Sortable.create(templateGroup,{
+    animation: 150,
+    chosenClass: "seleccionado",
+    dragClass: "drag"
+})
 
 document.addEventListener('DOMContentLoaded', function(){
     console.log(jsonData.content)

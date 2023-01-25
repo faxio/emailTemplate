@@ -100,7 +100,7 @@
     justify-content: center;
 }
 
-.button-sidebar{
+.button-sidebar, .button-text, .button-image, .button-divider{
     width: 100px;
     height: 100px;
     display: flex;
@@ -113,4 +113,14 @@
 
 ion-icon {
     font-size: 30px;
+}
+
+
+.parrafo {
+    font-size: 1em;
+    color: blueviolet;
+}
+
+.divContent {
+    background-color: white;
 }
