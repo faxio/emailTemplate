@@ -5,7 +5,10 @@ const contentNewTemplate = document.querySelector(".body-element-grid");
 const contentTitle = document.querySelector("#body-element");
 const btnVolver = document.querySelector(".volver-template")
 const elementInsert = document.querySelector(".group-button-sidebar")
+const sidebar = document.querySelector(".sidebar-drag-drop")
 
+// Cargar btnsTables.
+const tables = document.querySelector("#select-table");
 
 import jsonData from "./persistence/info.json" assert { type: "json" };
 
@@ -34,7 +37,7 @@ new Sortable(elementInsert, {
 });
 
 document.addEventListener('DOMContentLoaded', function(){
-    console.log(jsonData)
+
     const element = querystring.substring(3);
     
     const texto = document.createElement('h3')
@@ -43,6 +46,14 @@ document.addEventListener('DOMContentLoaded', function(){
 
     contentTitle.appendChild(texto)
 
+    // buttons components, edit, future.
+
+    for (const child of tables.children){
+
+        child.addEventListener('click', function() {
+            console.log(child.id)
+        })
+    }
 })
 
 btnVolver.addEventListener('click', function(){

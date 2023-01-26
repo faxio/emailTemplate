@@ -9,7 +9,8 @@ Sortable.create(templateGroup,{
 })
 
 document.addEventListener('DOMContentLoaded', function(){
-    console.log(jsonData.content)
+    
+
     jsonData.content.map(( elem) => {
         const contenedor = document.createElement(elem.type);
         const texto      = document.createElement("h3");
@@ -29,6 +30,10 @@ document.addEventListener('DOMContentLoaded', function(){
         templateGroup.appendChild(contenedor)
 
     })
+
+
+
+
 })
 
 btnNewtemplate.addEventListener('click', function() {
