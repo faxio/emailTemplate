@@ -1,7 +1,8 @@
-import { creaColumn, creaDivider, creaImagen, creaText } from "./objets.js";
+import {  creaDivider, creaImagen, creaText } from "./objets.js";
 
 const querystring = window.location.search
-const contentNewTemplate = document.querySelector("#body-element");
+const contentNewTemplate = document.querySelector(".body-element-grid");
+const contentTitle = document.querySelector("#body-element");
 const btnVolver = document.querySelector(".volver-template")
 const elementInsert = document.querySelector(".group-button-sidebar")
 
@@ -24,9 +25,10 @@ new Sortable(elementInsert, {
         put: false,
     },
     animation: 150,
+    sort: false,
 
     onEnd: (evt) => {
-        createElement(evt.item)
+        createElement(evt.item, evt.to)
     }
 
 });
@@ -37,10 +39,9 @@ document.addEventListener('DOMContentLoaded', function(){
     
     const texto = document.createElement('h3')
     let filter = jsonData.content.filter( elem => elem.className === element)
-    console.log(filter[0])
     texto.innerText = filter[0].name
 
-    contentNewTemplate.appendChild(texto)
+    contentTitle.appendChild(texto)
 
 })
 
@@ -49,7 +50,10 @@ btnVolver.addEventListener('click', function(){
 
 } )
 
-const createElement = (item) => {
+const createElement = (item, to) => {
+
+    //console.log(to.className)
+    if (to.className === 'body-element-grid'){
 
     const type = item.getAttribute("data-id")
     item.className = "divContent"
@@ -72,4 +76,25 @@ const createElement = (item) => {
             break;
     }
 }
+}
 
+const creaColumn = (item) => {
+    
+    let idNew = (Math.random()*10).toString(36).substring(2,40)
+
+    item.innerHTML = `
+        <div class="cajaNegra"> 
+            
+        </div>
+    `
+
+    new Sortable(item, {
+        filter: '.filtered',
+        group: {
+            name: 'shared',
+            put: false,
+    
+        },
+        animation: 150
+    });
+}

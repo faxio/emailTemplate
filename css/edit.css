@@ -79,17 +79,24 @@
 
     display: flex;
     flex-direction: column;
-    direction: ltr;
     overflow-y: auto;
     width: calc(100%);
     height: 100%;
+    align-items: center;
+    border: 1px solid black;
 
+}
+.body-element-grid{
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    min-height: 300px;
+    background-color: red;
 }
 
 #container {
 
     height: calc(100vh - 68px) ;
-
 }
 
 .group-button-sidebar {
@@ -123,4 +130,12 @@ ion-icon {
 
 .divContent {
     background-color: white;
+}
+
+.cajaNegra {
+
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    border: 1px solid black;
 }

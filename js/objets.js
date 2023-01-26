@@ -32,7 +32,21 @@ export const creaText = (item) => {
 
 export const creaColumn = (item) => {
     
+    let idNew = (Math.random()*10).toString(36).substring(2,40)
+
     item.innerHTML = `
-        <div> Soy una columna </div>
+        <div class="cajaNegra"> 
+            
+        </div>
     `
+
+    new Sortable(item, {
+        group: {
+            name: 'dishared',
+    
+        },
+        animation: 150
+    });
 }
+
+
