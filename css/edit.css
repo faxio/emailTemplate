@@ -89,9 +89,12 @@
 .body-element-grid{
     display: flex;
     flex-direction: column;
-    min-width: 300px;
-    min-height: 300px;
-    background-color: red;
+    min-width: 800px;
+    min-height: 600px;
+    background-color: white;
+    border: 4px solid black;
+    border-style: dashed;
+    padding: 2px;
 }
 
 #container {

@@ -3,9 +3,16 @@ import {  creaDivider, creaImagen, creaText } from "./objets.js";
 const querystring = window.location.search
 const contentNewTemplate = document.querySelector(".body-element-grid");
 const contentTitle = document.querySelector("#body-element");
-const btnVolver = document.querySelector(".volver-template")
-const elementInsert = document.querySelector(".group-button-sidebar")
-const sidebar = document.querySelector(".sidebar-drag-drop")
+const btnVolver = document.querySelector(".volver-template");
+const elementInsert = document.querySelector(".group-button-sidebar");
+const contentTs = document.querySelector(".content-TS");
+
+//Cargar tables
+const table1 = document.querySelector('.table-primary')
+const table2 = document.querySelector('.table-secundary')
+const table3 = document.querySelector('.table-tercery')
+
+const tablesAll = [table1, table2, table3]
 
 // Cargar btnsTables.
 const tables = document.querySelector("#select-table");
@@ -44,14 +51,28 @@ document.addEventListener('DOMContentLoaded', function(){
     let filter = jsonData.content.filter( elem => elem.className === element)
     texto.innerText = filter[0].name
 
-    contentTitle.appendChild(texto)
+    contentTitle.insertBefore(texto, contentTitle.firstChild)
+
+    // Limpiar contenido
+    while (contentTs.firstChild){
+        contentTs.removeChild(contentTs.firstChild)
+    }
+    contentTs.appendChild(table1)
 
     // buttons components, edit, future.
 
     for (const child of tables.children){
 
         child.addEventListener('click', function() {
-            console.log(child.id)
+            
+            //limpiar content
+            while (contentTs.firstChild){
+                contentTs.removeChild(contentTs.firstChild)
+            }
+
+            //colocar el contenido que queremos
+            const element = child.getAttribute('tableselect')
+            contentTs.appendChild( tablesAll.filter( table =>  table.className === element)[0] )
         })
     }
 })
