@@ -1,13 +1,6 @@
-    /*
-    onEnd: (evt) => {
-        const item = evt.item;
-        item.className = "divContent"
-        while (item.firstChild) {
-            item.removeChild(item.firstChild);
-        }
-        item.innerHTML = `<p class="parrafo"> Soy un texto </p>`
-        console.log(evt.item)
-    },*/
+// loading refs of inputs
+const textModify = document.querySelector('.text-modify');
+const fontSizeModify = document.querySelector('.font-size-modify')
 
 export const creaImagen = (item) => {
 
@@ -19,15 +12,43 @@ export const creaImagen = (item) => {
 export const creaDivider = (item) => {
     
     item.innerHTML = `
-        <hr>
+        <div class="divider-size">
+            <hr >
+        </div>
     `
 }
 
-export const creaText = (item) => {
+export const creaText = (item, contentTs, table2) => {
     
     item.innerHTML = `
-        <p class="parrafo"> New text </p>
+
+            <p class="parrafo"> New text </p>
+        
     `
+    
+    item.style.fontSize = '16px'
+    item.addEventListener('click', function (){
+        
+        while (contentTs.firstChild){
+            contentTs.removeChild(contentTs.firstChild)
+        }
+        contentTs.appendChild(table2)
+        
+        
+        textModify.value = item.innerText
+
+        textModify.oninput = function() {
+            item.innerText = textModify.value
+        };
+
+        console.log(item.style)
+        
+
+        fontSizeModify.value = item.style.fontSize.slice(0,item.style.fontSize.indexOf('p'))
+        fontSizeModify.oninput = function() {
+            item.style.fontSize = fontSizeModify.value + "px"
+        };
+    })
 }
 
 export const creaColumn = (item) => {

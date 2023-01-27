@@ -33,13 +33,13 @@
 
                 <div id="select-table">
                     <button tableselect="table-primary">
-                        Components
+                        <ion-icon name="duplicate-outline"></ion-icon>
                     </button>
                     <button tableselect="table-secundary">
-                        Edit
+                        <ion-icon class="icon-news" name="create-outline"></ion-icon>
                     </button>
                     <button tableselect="table-tercery">
-                        future
+                        <ion-icon name="terminal-outline"></ion-icon>
                     </button>
                 </div>
                 
@@ -50,10 +50,12 @@
 
                         <div class="group-button-sidebar">
     
+                            <!--
                             <div class="button-sidebar" data-id="column">
                                 <ion-icon name="grid-outline"></ion-icon>
                                 <span>Columns</span>
                             </div>
+                            -->
     
                             <div class="button-text" data-id="text">
                                 <ion-icon name="text-outline" data-id="text"></ion-icon>
@@ -75,11 +77,22 @@
                     </div>
 
                     <div class="table-secundary">
-                        <h1> Edición futura</h1>
+
+                        <h3> Edición futura</h3>
+                        
+                        <div class="block-flex">
+                            <h4> Modifique el texto </h4>
+                            <input type="text" class="text-modify"/>
+                        </div>
+
+                        <div class="block-flex">
+                            <h4> Modifique el tamaño de letra</h4>
+                            <input class="font-size-modify" type="number"/>
+                        </div>
                     </div>
                     
                     <div class="table-tercery">
-                        <h1>Todavía no se </h1>
+                        <h3>In the future </h3>
                     </div>
                 </div>
                 

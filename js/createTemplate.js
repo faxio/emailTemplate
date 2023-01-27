@@ -48,12 +48,13 @@ btnNewtemplate.addEventListener('click', function() {
 
     // Agregar clases
     contenedor.className = "template-archivo"
-    contenedor.id        = (Math.random()*10).toString(36).substring(2,40)
+    let idunic           =  (Math.random()*10).toString(36).substring(2,40)
+    contenedor.id        = idunic
     btnEdit.className  = "btn"
 
     // Añadir evento
     btnEdit.addEventListener('click', function(){
-        window.location.href = "./edit.html"
+        window.location.href = "./edit.html?q="+idunic
     })
     contenedor.appendChild(texto)
     contenedor.appendChild(btnEdit)

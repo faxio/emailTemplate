@@ -25,6 +25,7 @@ new Sortable(contentNewTemplate, {
         name: 'shared',
 
     },
+
     animation: 150
 });
 
@@ -36,9 +37,11 @@ new Sortable(elementInsert, {
     },
     animation: 150,
     sort: false,
+    chosenClass: "seleccionado",
+    dragClass: "drag",
 
     onEnd: (evt) => {
-        createElement(evt.item, evt.to)
+        createElement(evt.item, evt.to, contentTs, table2)
     }
 
 });
@@ -48,8 +51,11 @@ document.addEventListener('DOMContentLoaded', function(){
     const element = querystring.substring(3);
     
     const texto = document.createElement('h3')
-    let filter = jsonData.content.filter( elem => elem.className === element)
-    texto.innerText = filter[0].name
+    let filter = jsonData.content.filter( elem => elem.className === element)[0]
+
+    if (!filter) texto.innerText = "New Template"
+    else{ texto.innerText = filter.name }
+    
 
     contentTitle.insertBefore(texto, contentTitle.firstChild)
 
@@ -57,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function(){
     while (contentTs.firstChild){
         contentTs.removeChild(contentTs.firstChild)
     }
-    contentTs.appendChild(table1)
+    contentTs.appendChild(table2)
 
     // buttons components, edit, future.
 
@@ -82,7 +88,7 @@ btnVolver.addEventListener('click', function(){
 
 } )
 
-const createElement = (item, to) => {
+const createElement = (item, to, contentTs, table2) => {
 
     //console.log(to.className)
     if (to.className === 'body-element-grid'){
@@ -101,7 +107,7 @@ const createElement = (item, to) => {
             creaDivider(item)
             break;
         case 'text':
-            creaText(item)
+            creaText(item, contentTs, table2)
             break;
         case 'column':
             creaColumn(item)

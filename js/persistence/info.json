@@ -3,12 +3,12 @@
         {
             "type": "div",
             "className": "asd21qwx",
-            "name": "Primer div"
+            "name": "Primer template"
         },
         {
             "type": "div",
             "className": "asd21qwxd",
-            "name": "segundo div"
+            "name": "segundo template"
         }
     ]
 }
