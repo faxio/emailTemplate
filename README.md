@@ -6,7 +6,7 @@
 2. Al precionar edit entramos a la siguiente ventana
    ![edit](img-preview/edit.png)
 
-- donde podemos agregar tres tipos de objetos
+- Donde podemos agregar tres tipos de objetos
   - Divider
   - Text
   - Image
