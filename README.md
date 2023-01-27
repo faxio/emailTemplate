@@ -4,10 +4,9 @@
    ![index](img-preview/index.png)
 
 2. Al precionar edit entramos a la siguiente ventana
-   ![edit](img-preview/edit.png)
+   ![edit](img-preview/editv2.png)
 
 - Donde podemos agregar tres tipos de objetos
   - Divider
   - Text
   - Image
-- Por el momento solo se puede cambiar el tamaño de fuente y el texto del objeto tipo text
