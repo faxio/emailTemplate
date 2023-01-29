@@ -1,4 +1,5 @@
 import {  creaDivider, creaImagen, creaText } from "./objets.js";
+import { limpiarElemento } from "./utils/utils.js";
 
 const querystring = window.location.search
 const contentNewTemplate = document.querySelector(".body-element-grid");
@@ -59,10 +60,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
     contentTitle.insertBefore(texto, contentTitle.firstChild)
 
-    // Limpiar contenido
-    while (contentTs.firstChild){
-        contentTs.removeChild(contentTs.firstChild)
-    }
+    limpiarElemento(contentTs)
+
+
     contentTs.appendChild(table2)
 
     // buttons components, edit, future.
@@ -72,10 +72,7 @@ document.addEventListener('DOMContentLoaded', function(){
         child.addEventListener('click', function() {
             
             //limpiar content
-            while (contentTs.firstChild){
-                contentTs.removeChild(contentTs.firstChild)
-            }
-
+            limpiarElemento(contentTs)
             //colocar el contenido que queremos
             const element = child.getAttribute('tableselect')
             contentTs.appendChild( tablesAll.filter( table =>  table.className === element)[0] )
@@ -95,9 +92,8 @@ const createElement = (item, to, contentTs, table2) => {
 
     const type = item.getAttribute("data-id")
     item.className = "divContent"
-    while (item.firstChild) {
-        item.removeChild(item.firstChild);
-    }
+
+    limpiarElemento(item)
 
     switch(type){
         case 'image':
@@ -115,6 +111,9 @@ const createElement = (item, to, contentTs, table2) => {
     }
 }
 }
+
+
+/*
 
 const creaColumn = (item) => {
     
@@ -136,3 +135,4 @@ const creaColumn = (item) => {
         animation: 150
     });
 }
+*/

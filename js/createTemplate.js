@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function(){
         btnEdit.addEventListener('click', function(){
             window.location.href = "./edit.html?q="+elem.className
         })
-        contenedor.appendChild(texto)
-        contenedor.appendChild(btnEdit)
+        contenedor.append(texto, btnEdit)
+
     
         templateGroup.appendChild(contenedor)
 
@@ -71,8 +71,7 @@ btnNewtemplate.addEventListener('click', function() {
     btnEdit.addEventListener('click', function(){
         window.location.href = "./edit.html?q="+idunic
     })
-    contenedor.appendChild(texto)
-    contenedor.appendChild(btnEdit)
-
+    
+    contenedor.append(texto, btnEdit)
     templateGroup.appendChild(contenedor)
 })
