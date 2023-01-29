@@ -1,3 +1,6 @@
+// imports
+import { groupBtnAlignItems } from './btnContenido.js'
+
 // loading refs of inputs
 const textModify = document.querySelector('.text-modify');
 const fontSizeModify = document.querySelector('.font-size-modify')
@@ -5,6 +8,9 @@ const colorLetterModify = document.querySelector('.color-letter-modify')
 const backgroundColorLeterModify = document.querySelector('.backgroundColor-leter-modify')
 const leftMod = document.querySelector('.left-mod')
 const topMod = document.querySelector('.top-mod')
+const blockInline = document.querySelector('.block-inline')
+
+
 
 export const creaImagen = (item) => {
 
@@ -82,6 +88,7 @@ export const creaText = (item, contentTs, table2) => {
             item.style.paddingLeft = leftMod.value + "px"
             item.style.paddingRight = leftMod.value + "px"
         };
+        groupBtnAlignItems(blockInline, parrafo)
     })
 }
 
