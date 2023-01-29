@@ -42,7 +42,7 @@ new Sortable(elementInsert, {
 
     onEnd: (evt) => {
         createElement(evt.item, evt.to, contentTs, table2)
-    }
+    },
 
 });
 

@@ -2,19 +2,16 @@ const templateGroup  = document.querySelector(".templates-group")
 const btnNewtemplate = document.querySelector("#new-template");
 import jsonData from "./persistence/info.json" assert { type: "json" };
 
-Sortable.create(templateGroup,{
-    animation: 150,
-    chosenClass: "seleccionado",
-    dragClass: "drag"
-})
+
 
 document.addEventListener('DOMContentLoaded', function(){
     
-
-    jsonData.content.map(( elem) => {
+    
+    jsonData.content.map(( elem ) => {
         const contenedor = document.createElement(elem.type);
         const texto      = document.createElement("h3");
         const btnEdit    = document.createElement("a");
+        contenedor.setAttribute('data-id', elem['data-id'])
 
         texto.innerText  = elem.name
         btnEdit.innerText = "Edit"
@@ -32,7 +29,23 @@ document.addEventListener('DOMContentLoaded', function(){
     })
 
 
-
+    Sortable.create(templateGroup,{
+        animation: 150,
+        chosenClass: "seleccionado",
+        dragClass: "drag",
+        group: "lista-template",
+        store: {
+            set: (sortable) => {
+                const orden = sortable.toArray();
+                localStorage.setItem(sortable.options.group.name, orden.join('|'));
+            },
+            get: (sortable) => {
+                const orden = localStorage.getItem(sortable.options.group.name)
+                console.log(orden)
+                return orden? orden.split('|'): [];
+            } 
+        }
+    })
 
 })
 
@@ -51,6 +64,8 @@ btnNewtemplate.addEventListener('click', function() {
     let idunic           =  (Math.random()*10).toString(36).substring(2,40)
     contenedor.id        = idunic
     btnEdit.className  = "btn"
+
+
 
     // Añadir evento
     btnEdit.addEventListener('click', function(){
